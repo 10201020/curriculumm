@@ -1,0 +1,11 @@
+body{
+    background-color: rgb(145, 145, 145);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding-top: 50px;
+}
+
+h1{
+    border-bottom: 3px solid;
+}
+
