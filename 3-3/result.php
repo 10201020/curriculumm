@@ -1,12 +1,12 @@
 <?php
 
 $random = $_POST['random'];
-$num = rand(0,9);
-
+$number = str_shuffle($random);
+$num = substr($number,0, 1);
 
 ?>
 
-<p><?php echo date("Y/m/d", $random);?>の運勢は</p>
+<p><?php echo date("Y/m/d");?>の運勢は</p>
 <p>選ばれた数字は<?php echo $num;?></p>
 
 <?php
