@@ -2,15 +2,13 @@
 require 'lib/password.php';
 // セッション開始
 session_start();
-include_once("dbInfo.php");
+include_once("dbconnect.php");
 
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
 $signUpMessage = "";
 
 // セッション開始
-session_start();
-
 
 // ログインボタンが押された場合
 if (isset($_POST["signUp"])) {
