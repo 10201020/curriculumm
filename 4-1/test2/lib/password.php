@@ -10,8 +10,8 @@
         <form id="loginForm" name="loginForm" action="" method="POST">
             <fieldset>
                 <legend>新規登録フォーム</legend>
-                <div><style color="#ff0000"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></style></div>
-                <div><style color="#0000ff"><?php echo htmlspecialchars($signUpMessage, ENT_QUOTES); ?></style></div>
+                <div style="color: #ff0000;"><?php echo htmlspecialchars($errorMessage, ENT_QUOTES); ?></div>
+                <div style="color: #0000ff;"><?php echo htmlspecialchars($signUpMessage, ENT_QUOTES); ?></div>
                 
 
                 <label for="username">ユーザー名</label><input type="text" id="username" name="username" placeholder="ユーザー名を入力" value="<?php if (!empty($_POST["username"])) {

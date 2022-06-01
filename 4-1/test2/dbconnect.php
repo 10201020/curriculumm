@@ -1,5 +1,4 @@
 <?php
-// セッション開始
 
 // DBサーバのURL
 $db['host'] = "localhost";
