@@ -1,5 +1,4 @@
 <?php
-
 // DBサーバのURL
 $db['host'] = "localhost";
 // ユーザー名
