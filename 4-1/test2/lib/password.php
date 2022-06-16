@@ -14,7 +14,8 @@
                 <div style="color: #0000ff;"><?php echo htmlspecialchars($signUpMessage, ENT_QUOTES); ?></div>
                 
 
-                <label for="username">ユーザー名</label><input type="text" id="username" name="username" placeholder="ユーザー名を入力" value="<?php if (!empty($_POST["username"])) {
+                <label for="username">ユーザー名</label>
+                <input type="text" id="username" name="username" placeholder="ユーザー名を入力" value="<?php if (!empty($_POST["username"])) {
     echo htmlspecialchars($_POST["username"], ENT_QUOTES);
 } ?>">
                 <br>
