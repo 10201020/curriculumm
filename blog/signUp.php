@@ -17,29 +17,28 @@ if (isset($_POST["signUp"])) {
     } else if (empty($_POST["password"])) {
         $errorMessage = 'パスワードが未入力です。';
     }
-
+    
     if (!empty($_POST["name"]) && !empty($_POST["password"])) {
         // 入力したユーザIDとパスワードを格納
         $username = $_POST["name"];
         $password = $_POST["password"];
-
+        
         // 2. ユーザIDとパスワードが入力されていたら認証する
         $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
-
         // 3. エラー処理
-        try {
-            $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-            $stmt = $pdo->prepare("INSERT INTO users(name, password) VALUES (?, ?)");
-            
-            $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT)));  // パスワードのハッシュ化を行う（今回は文字列のみなのでbindValue(変数の内容が変わらない)を使用せず、直接excuteに渡しても問題ない）
-            $userid = $pdo->lastinsertid();  // 登録した(DB側でauto_incrementした)IDを$useridに入れる
-            
-            $signUpMessage = '登録が完了しました';  // ログイン時に使用するIDとパスワード
-        } catch (PDOException $e) {
-            $errorMessage = 'データベースエラー';
-            // $e->getMessage() でエラー内容を参照可能（デバック時のみ表示）
-            // echo $e->getMessage();
-        }
+            try {
+                $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+                $stmt = $pdo->prepare("INSERT INTO users(name, password) VALUES (?, ?)");
+                
+                $stmt->execute(array($username, password_hash($password, PASSWORD_DEFAULT)));  // パスワードのハッシュ化を行う（今回は文字列のみなのでbindValue(変数の内容が変わらない)を使用せず、直接excuteに渡しても問題ない）
+                $userid = $pdo->lastinsertid();  // 登録した(DB側でauto_incrementした)IDを$useridに入れる
+                
+                $signUpMessage = '登録が完了しました';  // ログイン時に使用するIDとパスワード
+            } catch (PDOException $e) {
+                $errorMessage = 'データベースエラー';
+                // $e->getMessage() でエラー内容を参照可能（デバック時のみ表示）
+                // echo $e->getMessage();
+            }
     } 
 }
 ?>

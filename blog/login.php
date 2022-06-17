@@ -21,7 +21,7 @@ if (!empty($_POST)) {
         $name = htmlspecialchars($_POST['name'], ENT_QUOTES);
         $pass = htmlspecialchars($_POST['pass'], ENT_QUOTES);
         // ログイン処理開始
-        $pdo = connect();
+        $pdo = dbconnect();
         try {
             //データベースアクセスの処理文章。ログイン名があるか判定
             $sql = "SELECT * FROM users WHERE name = :name";

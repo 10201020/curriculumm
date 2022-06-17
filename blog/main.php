@@ -1,11 +1,6 @@
 <?php
-// セッション開始
-session_start();
-// セッションにuser_nameの値がなければlogin.phpにリダイレクト
-if (empty($_SESSION["user_name"])) {
-    header("Location: login.php");
-    exit;
-}
+require_once('function.php');
+check_user_logged_in();
 ?>
 <!doctype html>
 <html>
