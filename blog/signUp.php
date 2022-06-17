@@ -2,7 +2,7 @@
 session_start();
 
 // require 'lib/password.php';
-include_once("dbconnect.php");
+require_once("dbconnect.php");
 
 // エラーメッセージ、登録完了メッセージの初期化
 $errorMessage = "";
@@ -22,10 +22,10 @@ if (isset($_POST["signUp"])) {
         // 入力したユーザIDとパスワードを格納
         $username = $_POST["name"];
         $password = $_POST["password"];
-        
         // 2. ユーザIDとパスワードが入力されていたら認証する
         $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
         // 3. エラー処理
+        
             try {
                 $pdo = new PDO($dsn, $db['user'], $db['pass'], array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
                 $stmt = $pdo->prepare("INSERT INTO users(name, password) VALUES (?, ?)");

@@ -11,17 +11,17 @@ if (!empty($_POST)) {
         echo "名前が未入力です。";
     }
     // パスワードが入力されていない場合の処理
-    if (empty($_POST["pass"])) {
+    if (empty($_POST["password"])) {
         echo "パスワードが未入力です。";
     }
 
     // 両方共入力されている場合
-    if (!empty($_POST["name"]) && !empty($_POST["pass"])) {
+    if (!empty($_POST["name"]) && !empty($_POST["password"])) {
         //ログイン名とパスワードのエスケープ処理
         $name = htmlspecialchars($_POST['name'], ENT_QUOTES);
-        $pass = htmlspecialchars($_POST['pass'], ENT_QUOTES);
+        $pass = htmlspecialchars($_POST['password'], ENT_QUOTES);
         // ログイン処理開始
-        $pdo = dbconnect();
+        $pdo = db_connect();
         try {
             //データベースアクセスの処理文章。ログイン名があるか判定
             $sql = "SELECT * FROM users WHERE name = :name";
@@ -65,7 +65,7 @@ if (!empty($_POST)) {
         <h2>ログイン画面</h2>
         <form method="post" action="">
             名前：<input type="text" name="name" size="15"><br><br>
-            パスワード：<input type="text" name="pass" size="15"><br><br>
+            パスワード：<input type="password" name="password" size="15"><br><br>
             <input type="submit" value="ログイン">
         </form>
     </body>
