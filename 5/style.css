@@ -1,0 +1,186 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: none;
+font-style: normal;
+text-align: left;
+zoom: 1;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+table {
+border-collapse: collapse;
+font-family: inherit;
+}
+th,td {
+border-collapse: collapse;
+}
+table th,table td {
+white-space: nowrap;
+}
+
+a{
+    text-decoration: none;
+}
+body{
+    margin: 30px auto;
+    width: 80%;
+}
+.input{
+    width: 300px;
+}
+
+/* main.php */
+h1{
+    margin-bottom: 30px;
+}
+.button{
+    display: inline-block;
+    border-radius: 5%;       
+    font-size: 10pt;  
+    text-align: center; 
+    cursor: pointer;
+    padding: 12px 12px;
+    background: #007fff; 
+    color: #ffffff; 
+    line-height: 1em;
+    margin-right: 20px;
+}
+.button-out{
+    display: inline-block;
+    border-radius: 5%;       
+    font-size: 10pt;  
+    text-align: center; 
+    cursor: pointer;
+    padding: 12px 12px;
+    background: #7c7e81; 
+    color: #ffffff; 
+    line-height: 1em;
+}
+table,tr,td,th{
+    border: 1px solid rgb(108, 108, 112);
+}
+table{
+    margin-top: 30px;
+}
+th{
+    background-color: rgb(158, 154, 154);
+    padding: 12px 32px;
+}
+td{
+    text-align: center;
+    align-items: center;
+    padding: 12px 0;
+}
+.button-del{
+    display: inline-block;
+    border-radius: 5%;       
+    font-size: 10pt;  
+    text-align: center; 
+    cursor: pointer;
+    padding: 6px 6px;
+    background: #df0f0f; 
+    color: #ffffff; 
+    line-height: 1em;  
+}
+
+/* login.php */
+h2{
+    display: inline;
+}
+.button-user{
+    display: inline;
+    margin-left: 30px;
+    border-radius: 5%;       
+    font-size: 10pt;  
+    text-align: center; 
+    cursor: pointer;
+    padding: 6px 6px;
+    background: #3cdf0f; 
+    color: #ffffff; 
+    line-height: 1em;
+    vertical-align: super;
+}
+form{
+    margin-top: 30px;
+}
+.button-login{
+    display: inline-block;
+    border-radius: 5%;       
+    font-size: 10pt;  
+    text-align: center; 
+    cursor: pointer;
+    padding: 6px 12px;
+    background: #007fff; 
+    color: #ffffff; 
+    line-height: 1em;
+    border: none;
+    width: 150px;
+}
+input{
+    height: 30px;
+}
+
+/* signUp.php */
+.button-register{
+    display: inline-block;
+    border-radius: 5%;       
+    font-size: 10pt;  
+    text-align: center; 
+    cursor: pointer;
+    padding: 6px 12px;
+    background: #007fff; 
+    color: #ffffff; 
+    line-height: 1em;
+    border: none;
+    width: 150px;
+}
+
+/* create_post.php */
+.button-book{
+    display: inline-block;
+    border-radius: 5%;       
+    font-size: 10pt;  
+    text-align: center; 
+    cursor: pointer;
+    padding: 6px 12px;
+    background: #007fff; 
+    color: #ffffff; 
+    line-height: 1em;
+    border: none;
+    width: 150px;
+}
+input{
+    margin: 15px 0;
+}
+
+/* logout.php */
+.button-logout{
+    display: inline-block;
+    border-radius: 5%;       
+    font-size: 10pt;  
+    text-align: center; 
+    cursor: pointer;
+    padding: 12px 12px;
+    background: #007fff; 
+    color: #ffffff; 
+    line-height: 1em;
+    width: 150px;
+}
+.out-comment{
+    margin-bottom: 30px;
+}

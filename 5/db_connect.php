@@ -1,0 +1,35 @@
+<?php
+
+$db['host'] = "localhost";
+// ユーザー名
+$db['user'] = "root";
+// ユーザー名のパスワード
+$db['pass'] = "";
+// データベース名
+$db['dbname'] = "test5";
+
+$dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
+
+function db_connect(){
+    $db['host'] = "localhost";
+    // ユーザー名
+    $db['user'] = "root";
+    // ユーザー名のパスワード
+    $db['pass'] = "";
+    // データベース名
+    $db['dbname'] = "test5";
+    
+    $dsn = sprintf('mysql: host=%s; dbname=%s; charset=utf8', $db['host'], $db['dbname']);
+
+
+try{
+        $pdo = new PDO($dsn,$db['user'],$db['pass'],[
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+        ]);
+        return $pdo;
+    }catch(PDOException $e){
+        echo '接続失敗'. $e->getMessage();
+        exit();
+    }
+}
