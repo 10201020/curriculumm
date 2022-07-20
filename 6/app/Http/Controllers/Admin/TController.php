@@ -41,7 +41,7 @@ class TController extends Controller
       $t->fill($form);
       $t->save();
 
-      return redirect('admin/t/create');
+      return redirect('admin/t/');
   }
   // 以下を追記
   public function index(Request $request)

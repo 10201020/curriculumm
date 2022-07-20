@@ -32,4 +32,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('t/create', 'Admin\TController@create'); # 追記
 });
 
-Route::post('/user', 'UsersController@withdrawal')->name('user.withdrawal');
+// Route::post('/user', 'UsersController@withdrawal')->name('user.withdrawal');
+
+
