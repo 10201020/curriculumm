@@ -17,8 +17,8 @@ class CreateTTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->nullable(); // ニュースのタイトルを保存するカラム
             $table->string('body')->nullable();  // ニュースの本文を保存するカラム
-            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

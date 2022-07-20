@@ -11,7 +11,7 @@ class T extends Model
 
     // 以下を追記
     public static $rules = array(
-        'user_id' => 'required',
+        // 'user_id' => 'required',
         'body' => 'required',
     );
 
