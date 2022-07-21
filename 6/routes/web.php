@@ -25,7 +25,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('t', 'Admin\TController@index')->middleware('auth');
     Route::get('t/edit', 'Admin\TController@edit')->middleware('auth'); // 追記
     Route::post('t/edit', 'Admin\TController@update')->middleware('auth');
-    Route::get('t/delete', 'Admin\TController@delete')->middleware('auth');
+    Route::get('t/softdelete', 'Admin\TController@softdelete')->middleware('auth');
 });
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('t/create', 'Admin\TController@add');

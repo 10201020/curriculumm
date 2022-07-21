@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\T;
+use App\User;
 use App\History;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 class TController extends Controller
 {
     public function add()
@@ -53,8 +55,9 @@ class TController extends Controller
       } else {
           // それ以外はすべてのニュースを取得する
           $posts = T::all();
+          $users = User::all();
       }
-      return view('admin.t.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      return view('admin.t.index', ['posts' => $posts, 'cond_title' => $cond_title, 'users' => $users]);
   }
   public function edit(Request $request)
   {
@@ -97,12 +100,13 @@ class TController extends Controller
   }
 
 
-  public function delete(Request $request)
+  public function softdelete()
   {
       // 該当するNews Modelを取得
-      $t = T::find($request->id);
+      T::find(Auth::id());
+      // $t = T::find($request->id);
       // 削除する
-      $t->delete();
+      // $t->delete();
       return redirect('admin/t/');
   }  
 }
