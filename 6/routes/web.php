@@ -19,19 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('t/create', 'Admin\TController@add')->middleware('auth');
-    Route::post('t/create', 'Admin\TController@create')->middleware('auth');
-    Route::get('t', 'Admin\TController@index')->middleware('auth');
-    Route::get('t/edit', 'Admin\TController@edit')->middleware('auth'); // 追記
-    Route::post('t/edit', 'Admin\TController@update')->middleware('auth');
-    Route::get('t/softdelete', 'Admin\TController@softdelete')->middleware('auth');
+// ログイン状態
+Route::group(['middleware' => 'auth'], function() {
+
+    // ユーザ関連
+    Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
+    // フォロー/フォロー解除を追加
+    Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
+    Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
+
 });
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    Route::get('t/create', 'Admin\TController@add');
-    Route::post('t/create', 'Admin\TController@create'); # 追記
-});
-
-// Route::post('/user', 'UsersController@withdrawal')->name('user.withdrawal');
-
-
