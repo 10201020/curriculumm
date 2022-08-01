@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatepostsTable extends Migration
+class CreateFavoritesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,29 @@ class CreatepostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('favorites', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->comment('ユーザID');
-            $table->string('body')->comment('本文');
-            $table->softDeletes();
-            $table->timestamps();
+            $table->unsignedInteger('post_id')->comment('ツイートID');
 
             $table->index('id');
             $table->index('user_id');
-            $table->index('body');
+            $table->index('post_id');
+
+            $table->unique([
+                'user_id',
+                'post_id'
+            ]);
 
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->foreign('post_id')
+                ->references('id')
+                ->on('posts')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
@@ -39,6 +48,6 @@ class CreatepostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('favorites');
     }
 }

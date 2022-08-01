@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\posts;
+use App\Models\Post;
 
-class postsTableSeeder extends Seeder
+class PostsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,7 @@ class postsTableSeeder extends Seeder
     public function run()
     {
         for ($i = 1; $i <= 10; $i++) {
-            posts::create([
+            Post::create([
                 'user_id'    => $i,
                 'body'       => 'これはテスト投稿' .$i,
                 'created_at' => now(),

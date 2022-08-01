@@ -15,7 +15,7 @@ class CommentsTableSeeder extends Seeder
         for ($i = 1; $i <= 10; $i++) {
             Comment::create([
                 'user_id' => 1,
-                'tweet_id' => $i,
+                'post_id' => $i,
                 'body' => 'これはテストコメント' .$i,
                 'created_at' => now(),
                 'updated_at' => now()
